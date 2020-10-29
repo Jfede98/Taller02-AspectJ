@@ -19,15 +19,16 @@ public aspect Logger {
     
     pointcut transaccion(): call(* Bank.money*(..));
     after() : transaccion(){
-    	FileWriter w;
+    	FileWriter w=null;
 		try {
-
-			w = new FileWriter(f);
+			w = new FileWriter(f,true);
 			BufferedWriter bw = new BufferedWriter(w);
 			if( thisJoinPointStaticPart.getSignature().getName()=="moneyMakeTransaction") {
-				bw.write("Transaccion hecha a las" + date);
+				bw.write("Transaccion hecha a las" + date + "\n");
+				System.out.println("Transaccion realizada a las: " + date);
 			}else {
-				bw.write("Retiro hecho a las" + date);
+				bw.write("Retiro hecho a las" + date+"\n");
+				System.out.println("Retiro realizada a las: " + date);
 			}
 			
 			bw.close();
@@ -37,7 +38,6 @@ public aspect Logger {
 
 			e.printStackTrace();
 		}
-    	System.out.println("****Transaccion realizada****");
     }
     
     
