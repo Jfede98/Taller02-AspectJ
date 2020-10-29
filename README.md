@@ -3,12 +3,12 @@ taller 02 usando eclipse y aspect
 
 # Funcionamiento de AspectJ
 <p>
-    <img src="imagenes/aspectejemplo.png" width="900" height="580" />
+    <img src="imagenes/funaspect.png" width="900" height="580" />
 </p>
-Captura del funcionamiento del Aspecto Ejemplo "usuario creado"
+Captura del funcionamiento del Aspecto de las transacciones
 
 # Código de AspectJ
 <p>
-    <img src="imagenes/logger.png" width="900" height="580" />
+    <img src="imagenes/codlogg.png" width="900" height="580" />
 </p>
 Captura del Aspect Logger
