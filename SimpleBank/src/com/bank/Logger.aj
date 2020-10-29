@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter
+
 
 public aspect Logger {
 	long millis = System.currentTimeMillis();
@@ -37,6 +37,19 @@ public aspect Logger {
     
     pointcut retiro(): call(* moneyWithdrawal());
     after() : retiro(){
+    	FileWriter w;
+		try {
+
+			w = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(w);
+			bw.write("Retiro hecho a las " + date);
+			bw.close();
+			w.close();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
     	System.out.println("*Retiro realizado*");
     }
 }
