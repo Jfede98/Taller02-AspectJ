@@ -17,7 +17,7 @@ public aspect Logger {
     	System.out.println("**** User created ****");
     }
     
-    pointcut transaccion(): call(* moneyMakeTransaction());
+    pointcut transaccion(): call(* money*(..));
     after() : transaccion(){
     	FileWriter w;
 		try {
